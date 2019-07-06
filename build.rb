@@ -1,53 +1,51 @@
 require 'redcarpet'
 require 'fileutils'
 
-def has_ext? file, extension
-  file.split(".").pop == extension
+def clean_dist
+  FileUtils.rm_rf('dist')
 end
 
-def convert_markdown_and_copy file, header, markdown
-  contents = File.read(file)
-  file_html = markdown.render(contents) 
+def convert_markdown_and_copy
+  markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+  header = File.read("src/_header.html")
 
-  output_html = "<!DOCTYPE html>
-  <html>
-  #{header}
-  <body>#{file_html}</body>
-  </html>
-  "
+  Dir.glob("src/**/*.markdown").each do |file|
+    next if file.split("/").pop[0] == "_" # skip files starting with underscore
 
+    contents = File.read(file)
+    file_html = markdown.render(contents) 
+
+    output_html = "<!DOCTYPE html>
+    <html>
+    #{header}
+    <body>
+      <div class='contents'>#{file_html}</div>
+    </body>
+    </html>
+    "
+
+
+    write file, "html", output_html
+  end
+end
+
+def concatenate_css_and_copy
+  full_style = Dir.glob("src/**/*.css").map{|file| File.read file }.join
+
+  write "src/styles.css", "css", full_style
+end
+
+def write file, extension, contents
   filename = file.split("/").pop.split(".").first
   input_dir = file.split("/")[1...-1].join("/")
   output_dir = File.join "dist", input_dir
-  output_file_path = File.join output_dir, "#{filename}.html"
+  destination = File.join(output_dir, "#{filename}.#{extension}")
 
-  write output_dir, output_file_path, output_html
+  FileUtils.mkdir_p output_dir
+  File.write(destination, contents)
 end
 
-def copy_normal file
-  filename = file.split("/").pop
-  input_dir = file.split("/")[1...-1].join("/")
-  output_dir = File.join "dist", input_dir
-  output_file_path = File.join output_dir, filename
 
-  write output_dir, output_file_path, File.read(file)
-end
-
-def write dir, path, contents
-  puts path
-
-  FileUtils.mkdir_p dir
-  File.write(path, contents)
-end
-
-FileUtils.rm_rf('dist')
-markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-header = File.read("src/_header.html")
-
-Dir.glob("src/**/*").each do |file|
-  if has_ext? file, "markdown"
-    convert_markdown_and_copy file, header, markdown
-  elsif has_ext? file, "css"
-    copy_normal file
-  end
-end
+clean_dist
+convert_markdown_and_copy
+concatenate_css_and_copy

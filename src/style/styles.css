@@ -1,0 +1,12 @@
+body,
+html {
+  background-color: #222;
+  color: white;
+}
+
+.contents {
+  width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
