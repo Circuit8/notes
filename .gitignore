@@ -1,3 +1,3 @@
-build
-build/*
+dist
+dist/*
 aws_credentials.yaml
