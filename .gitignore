@@ -1,0 +1,3 @@
+build
+build/*
+aws_credentials.yaml
