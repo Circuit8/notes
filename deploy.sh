@@ -7,4 +7,4 @@ echo "Deploying..."
 
 ruby ./deploy.rb;
 
-echo "Deploy complete! https://circuit8.github.io/"
+echo "Deploy complete! http://circuit8.s3-website.eu-west-2.amazonaws.com/"

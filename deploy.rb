@@ -10,7 +10,7 @@ class S3FolderUpload
 
   def initialize(folder_path, bucket)
     aws_credentials = YAML.load(File.open("./aws_credentials.yaml"))
-
+    
     @client            = Aws::S3::Client.new({
       access_key_id: aws_credentials["access_key_id"],
       secret_access_key: aws_credentials["secret_access_key"],
