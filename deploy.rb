@@ -38,6 +38,7 @@ class S3FolderUpload
           end
           file = files.pop rescue nil
           next unless file
+          next if file.split("/").pop[0] == "_" # skip files starting with underscore
 
           data = File.open(file)
 
