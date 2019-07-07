@@ -1,7 +1,9 @@
-# How to make a file executable in Linux
+---
+title: How to make a file executable in Linux
+---
 
 Super easy, but somehow I manage to forget it!
 
-```shell
+```bash
   chmod +x filename;
 ```
