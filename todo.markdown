@@ -1,3 +1,3 @@
--[] Point circuit8.dev to s3
--[] Move all the static site generation to a gem, then we can just call `bundle exec GEMNAME deploy` etc
--[] Make the index automatically load all the stuff based on their category etc. Perhaps we can use `.erb` files
+- Point circuit8.dev to s3
+- Move all the static site generation to a gem, then we can just call `bundle exec GEMNAME deploy` etc
+- Make the index automatically load all the stuff based on their category etc. Perhaps we can use `.erb` files
