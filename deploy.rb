@@ -46,7 +46,7 @@ class S3FolderUpload
             next
           else
             key = file.split("/")[1..-1].join("/")
-            puts "[#{Thread.current["file_number"]}/#{total_files}] #{file} --> #{key}"
+            puts "#{file} --> #{key}"
             @client.put_object({
               acl: "public-read", 
               body: data, 
@@ -64,3 +64,6 @@ end
 
 uploader = S3FolderUpload.new('dist', 'circuit8')
 uploader.upload!
+
+puts "\n  Deployed!"
+puts "  http://circuit8.s3-website.eu-west-2.amazonaws.com/"

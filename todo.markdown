@@ -1,0 +1,1 @@
+- Point circuit8.dev to s3
