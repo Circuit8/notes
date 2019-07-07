@@ -1,3 +1,3 @@
 - Point circuit8.dev to s3
 - Move all the static site generation to a gem, then we can just call `bundle exec GEMNAME deploy` etc
-- Make the index automatically load all the stuff based on their category etc. Perhaps we can use `.erb` files
+- Make the index automatically load all the stuff based on their category etc. Perhaps we can use `.erb` files. We could have a pages folder which uses .erb files. One variable thats passed into all the erb files is a list of the posts, each post has a category too from their YAML thing, so then we can use that in our `index.erb`
