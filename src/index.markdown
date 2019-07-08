@@ -10,3 +10,7 @@ title: Note Index
 ### Ruby
 
 - [Safely write a file in ruby](./posts/write-to-file-in-ruby.html)
+
+### Rust
+
+- [Unit Test Outline](./posts/rust-unit-tests.html)

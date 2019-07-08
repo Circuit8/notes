@@ -62,7 +62,7 @@ class S3FolderUpload
 end
 
 
-uploader = S3FolderUpload.new('dist', 'circuit8')
+uploader = S3FolderUpload.new('dist', 'circuit8.dev')
 uploader.upload!
 
 puts "\n  Deployed!"

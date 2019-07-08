@@ -2,11 +2,13 @@ body,
 html {
   background-color: #23232f;
   color: rgba(255, 255, 255, 0.9);
-  font-family: "sans-serif";
+  font-family: sans-serif;
 }
 
 body {
   padding: 16px;
+  line-height: 24px;
+  font-size: 18px;
 }
 
 header {
@@ -67,18 +69,20 @@ h6 {
 }
 
 p {
-  line-height: 24px;
-  font-size: 18px;
   margin-top: 0px;
 }
 
-p:not(:last-child) {
+p:not(:last-child),
+ul {
   margin-bottom: 30px;
 }
 
-p code {
-  padding: 0px 4px;
+li {
+  margin-bottom: 8px;
+}
+
+code {
+  padding: 1px 4px;
   letter-spacing: 1px;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #222;
+  background-color: rgba(255, 255, 255, 0.18);
 }
