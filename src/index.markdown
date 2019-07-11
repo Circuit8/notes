@@ -14,3 +14,4 @@ title: Note Index
 ### Rust
 
 - [Unit Test Outline](./posts/rust-unit-tests.html)
+- [Rust Struct Method Coolness](./posts/rust-struct-methods.html)
