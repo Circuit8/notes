@@ -1,4 +1,0 @@
-- Point circuit8.dev to s3
-- Move all the static site generation to a Rust crate, then we can just call `cargo run CRATE deploy` etc
-- Make pages use the rust equvilant of `.erb` files. One variable thats passed into all the erb files is a list of the posts, each post has a category too from their YAML thing, so then we can use that in our `index.erb`
-- create a generator so we can do `cargo CRATE new` or whatever and it copies a default structure, with a config.yaml, pages and posts, an example page, and post, the page being index.html and having a list of the posts, an example js file, and style.css etc

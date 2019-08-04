@@ -1,6 +1,6 @@
 #!/bin/bash
 clear;
 
-ruby ./build.rb;
+postit build;
 
-while inotifywait -e close_write src/*; do clear; ruby ./build.rb; done
+while inotifywait -e close_write ./src/**/*; do clear; postit build; done
